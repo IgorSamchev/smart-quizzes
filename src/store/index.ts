@@ -9,8 +9,16 @@ export default new Vuex.Store({
   state: {
     groups: [{
       name: '',
-      roundResult: []
-    }]
+      score: {
+        round1: 0,
+        round2: 0,
+        round3: 0,
+        round4: 0,
+        round5: 0,
+        round6: 0
+      }
+    }],
+    rounds: 6
   },
   getters: {
     groupNames (state): string[] {
@@ -18,14 +26,30 @@ export default new Vuex.Store({
     },
     sortedGroups (state): Group[] {
       return state.groups.sort((a: Group, b: Group) => a.name.localeCompare(b.name))
+    },
+    rounds (state): number {
+      return state.rounds
     }
   },
   mutations: {
-    addGroup (state, groupName) {
-      state.groups.push({ name: groupName, roundResult: [] })
+    addGroup: function (state, groupName) {
+      state.groups.push({
+        name: groupName,
+        score: {
+          round1: 0,
+          round2: 0,
+          round3: 0,
+          round4: 0,
+          round5: 0,
+          round6: 0
+        }
+      })
     },
     deleteGroup (state, groupName) {
-      state.groups.splice(state.groups.indexOf(groupName), 1)
+      state.groups.splice(state.groups.map(g => g.name === groupName).indexOf(groupName), 1)
+    },
+    updateGroup (state, group: Group) {
+      state.groups[state.groups.map(g => g.name).indexOf(group.name)] = group
     }
   },
   actions: {
