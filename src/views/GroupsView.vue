@@ -23,13 +23,6 @@
         >
           Добавить команду
         </el-button>
-
-        <el-button
-          type="success"
-          @click="reverseSort = !reverseSort"
-        >
-          Reverse sort
-        </el-button>
       </el-form-item>
     </el-form>
 
@@ -64,14 +57,9 @@ interface GroupForm {
 })
 export default class GroupsView extends Vue {
   private form: GroupForm = { group: '' };
-  private reverseSort = false;
 
   private get groupNames (): string[] {
-    const groups = this.$store.getters.groupNames
-    if (this.reverseSort) {
-      return groups.sort((a: string, b: string) => b.localeCompare(a))
-    }
-    return groups
+    return this.$store.getters.groupNames
   }
 
   private addGroup () {
