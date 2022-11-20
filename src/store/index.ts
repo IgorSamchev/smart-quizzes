@@ -13,10 +13,10 @@ export default new Vuex.Store({
     }]
   },
   getters: {
-    groupNames (state) {
+    groupNames (state): string[] {
       return state.groups.map(g => g.name).sort()
     },
-    sortedGroups (state) {
+    sortedGroups (state): Group[] {
       return state.groups.sort((a: Group, b: Group) => a.name.localeCompare(b.name))
     }
   },
