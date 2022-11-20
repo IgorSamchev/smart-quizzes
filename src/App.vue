@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/groups">Команды</router-link> |
+      <router-link to="/">Команды</router-link> |
       <router-link to="/score">Очки</router-link> |
       <router-link to="/result">Результат</router-link>
     </nav>

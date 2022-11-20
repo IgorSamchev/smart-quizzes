@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import { Group } from '@/types'
 
 Vue.use(Vuex)
 
@@ -16,7 +17,7 @@ export default new Vuex.Store({
       return state.groups.map(g => g.name).sort()
     },
     sortedGroups (state) {
-      return state.groups.sort((a, b) => a.name.localeCompare(b.name))
+      return state.groups.sort((a: Group, b: Group) => a.name.localeCompare(b.name))
     }
   },
   mutations: {
