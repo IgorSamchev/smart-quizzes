@@ -99,6 +99,6 @@ export default class GroupsView extends Vue {
  }
 
  .flip-list-move {
-   transition: transform 3s;
+   transition: transform 1s;
  }
 </style>
