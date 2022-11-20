@@ -2,6 +2,9 @@
   "name": "quiz",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -44,7 +47,6 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "@vue/standard",
       "@vue/typescript/recommended"
     ],
     "parserOptions": {
