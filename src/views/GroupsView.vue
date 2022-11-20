@@ -27,20 +27,20 @@
     </el-form>
 
     <b>Сегодня играют:</b>
-      <transition-group name="flip-list" tag="div">
-        <div
-          v-for="groupName in groupNames"
-          :key="groupName"
-          class="group"
-        >
-          <span>{{ groupName }}</span>
-          <el-button
-            type="danger"
-            class="el-icon-delete"
-            @click="deleteGroup(groupName)"
-          />
-        </div>
-      </transition-group>
+    <transition-group name="flip-list" tag="div">
+      <div
+        v-for="groupName in groupNames"
+        :key="groupName"
+        class="group"
+      >
+        <span>{{ groupName }}</span>
+        <el-button
+          type="danger"
+          class="el-icon-delete"
+          @click="deleteGroup(groupName)"
+        />
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -56,7 +56,7 @@ interface GroupForm {
   components: {}
 })
 export default class GroupsView extends Vue {
-  private form: GroupForm = { group: '' };
+  private form: GroupForm = { group: '' }
 
   private get groupNames (): string[] {
     return this.$store.getters.groupNames
@@ -84,21 +84,21 @@ export default class GroupsView extends Vue {
 </script>
 
 <style lang="scss" scoped>
- .el-icon-close {
-   color: red;
-   margin-left: 10px;
- }
+.el-icon-close {
+  color: red;
+  margin-left: 10px;
+}
 
- .group {
-   margin: 10px;
-   font-size: 30px;
-   display: grid;
-   grid-template-columns: 450px auto;
-   text-align: left;
-   place-content: center;
- }
+.group {
+  margin: 10px;
+  font-size: 30px;
+  display: grid;
+  grid-template-columns: 450px auto;
+  text-align: left;
+  place-content: center;
+}
 
- .flip-list-move {
-   transition: transform 1s;
- }
+.flip-list-move {
+  transition: transform 1s;
+}
 </style>
